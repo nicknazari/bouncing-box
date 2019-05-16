@@ -36,10 +36,10 @@ cornerHits = 0
 rectangleColor = randomColor(True) 
 
 # set color of corner hit counter text
-counterColor = (0,0,255)
+counterColor = (0,255,0)
 
 # one iteration is one frame
-for i in range(100000):
+for i in range(1000):
     # making blank black canvas
     img = np.zeros((height, width, 3), np.uint8)
 
@@ -47,7 +47,7 @@ for i in range(100000):
     cv2.rectangle(img, (x, y), (x+boxwidth,y+boxheight), rectangleColor, -1)
 
     # displaying corner hits value
-    cv2.putText(img, ('corner hits: %i' % cornerHits), (100, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, counterColor)
+    cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, counterColor)
 
     # displaying rectangle
     cv2.imshow("img", img)
@@ -72,3 +72,4 @@ for i in range(100000):
     # moves the box
     x += xspeed
     y += yspeed 
+
