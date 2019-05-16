@@ -17,11 +17,13 @@ def randomColor(bright=False):
 
 # window size
 width, height = 600, 400
+
 # defining starting positions
 x,y = 400,200
+
 # used to increment x and y
-xspeed = 5 
-yspeed = 5
+xspeed = 6 
+yspeed = 6
 
 # size of bouncing box
 boxheight = 40
@@ -45,7 +47,7 @@ for i in range(100000):
     cv2.rectangle(img, (x, y), (x+boxwidth,y+boxheight), rectangleColor, -1)
 
     # displaying corner hits value
-    cv2.putText(img, ('corner hits: %i' % cornerHits), (200, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, counterColor)
+    cv2.putText(img, ('corner hits: %i' % cornerHits), (100, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, counterColor)
 
     # displaying rectangle
     cv2.imshow("img", img)
