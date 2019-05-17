@@ -2,9 +2,9 @@
 
 This program simulates the bouncing dvd logo and counts corner collisions.
 
-### Interesting configurations to experiment with
+### Interesting configurations
 
-##### bounces from corner to corner
+##### Bounces from corner to corner
 - default values
 - x = 537
 - y = 358
