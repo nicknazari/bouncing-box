@@ -18,16 +18,25 @@ def randomColor(bright=False):
 # window size
 width, height = 600, 400
 
+def randomCoordinates():
+    return (random.randint(width,height), random.randint(width, height))
+
+# some common values
+# hits corner every other bounce
+# x,y = 537,358
+# xspeed = 3
+# yspeed = 2
+
 # defining starting positions
-x,y = 400,200
+x,y = 537,358
 
 # used to increment x and y
-xspeed = 6 
-yspeed = 6
+xspeed = 3
+yspeed = 2 
 
 # size of bouncing box
-boxheight = 40
 boxwidth = 60 
+boxheight = 40
 
 # keeps track of times that box has collided with both edges simultaneously
 cornerHits = 0
@@ -38,17 +47,26 @@ rectangleColor = randomColor(True)
 # set color of corner hit counter text
 counterColor = (0,255,0)
 
+# storing all circle positions placed on canvas
+circlePositions = []
+
 # one iteration is one frame
-for i in range(1000):
+for i in range(100000):
     # making blank black canvas
     img = np.zeros((height, width, 3), np.uint8)
 
     # drawing rectangle in current position
     cv2.rectangle(img, (x, y), (x+boxwidth,y+boxheight), rectangleColor, -1)
 
-    # displaying corner hits value
-    cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, counterColor)
+    # drawing circle to trace path
+    
+    circlePositions.append((x,y))
+    for pos in circlePositions:
+        cv2.circle(img, pos, 2, (0,0,255))
 
+    # displaying corner hits value
+    cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_PLAIN, 1, counterColor)
+    
     # displaying rectangle
     cv2.imshow("img", img)
     cv2.waitKey(20)
@@ -72,4 +90,3 @@ for i in range(1000):
     # moves the box
     x += xspeed
     y += yspeed 
-
