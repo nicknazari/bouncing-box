@@ -8,6 +8,10 @@ import numpy as np
 import random
 import yaml
 
+# debug traces a line on the top left corner of the bouncing box
+# good for tracking path of a box and seeing how it performs
+debug = True 
+
 # loading config values
 with open('config.yml', 'r') as cfgfile:
     config = yaml.load(cfgfile, Loader=yaml.FullLoader)
@@ -51,7 +55,7 @@ rectangleColor = randomColor(True)
 # set color of corner hit counter text
 counterColor = (0,255,0)
 
-# storing all circle positions placed on canvas
+# DEBUG: storing all circle positions placed on canvas
 circlePositions = []
 
 # one iteration is one frame
@@ -62,10 +66,11 @@ for i in range(100000):
     # drawing rectangle in current position
     cv2.rectangle(img, (x, y), (x+boxwidth,y+boxheight), rectangleColor, -1)
 
-    # drawing circle to trace path
-    circlePositions.append((x,y))
-    for pos in circlePositions:
-        cv2.circle(img, pos, 2, (0,0,255))
+    # DEBUG: drawing circle to trace path
+    if debug:
+        circlePositions.append((x,y))
+        for pos in circlePositions:
+            cv2.circle(img, pos, 2, (0,0,255))
 
     # displaying corner hits value
     cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_PLAIN, 1, counterColor)
