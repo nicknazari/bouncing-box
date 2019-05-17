@@ -2,7 +2,7 @@
 
 This program simulates the bouncing dvd logo and counts corner collisions.
 
-There is some math to verify that a certain set of values will guarantee a collision:
+There is an equation to verify that a certain set of values will guarantee a collision:
 
 - x = starting x
 - y = starting y
@@ -10,6 +10,7 @@ There is some math to verify that a certain set of values will guarantee a colli
 - H = canvas height
 - w = box width
 - h = box height
+- xspeed and yspeed must be equal
 
 *|x-y| mod gcd(W - w, H - h) == 0*
 
