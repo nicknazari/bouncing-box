@@ -4,12 +4,12 @@ This program simulates the bouncing dvd logo and counts corner collisions.
 
 There is some math to verify that a certain set of values will guarantee a collision:
 
-x = starting x
-y = starting y
-W = canvas width
-H = canvas height
-w = box width
-h = box height
+- x = starting x
+- y = starting y
+- W = canvas width
+- H = canvas height
+- w = box width
+- h = box height
 
 *|x-y| mod gcd(W - w, H - h) == 0*
 

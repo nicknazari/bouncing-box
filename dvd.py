@@ -6,6 +6,24 @@
 import cv2
 import numpy as np
 import random
+import yaml
+
+# loading config values
+with open('config.yml', 'r') as cfgfile:
+    config = yaml.load(cfgfile, Loader=yaml.FullLoader)
+
+# window width/height
+width = config['width']
+height = config['height']
+# bouncing box width/height
+boxwidth = config['boxwidth']
+boxheight = config['boxheight']
+# bouncing box starting position
+x = config['x']
+y = config['y']
+# speed at which box will move
+xspeed = config['xspeed']
+yspeed = config['yspeed']
 
 def randomColor(noblack=False):
     # returns a random color
@@ -21,22 +39,8 @@ def randomColor(noblack=False):
 
     return (random.randint(0,255), random.randint(0,255), random.randint(0,255))
 
-# window size
-width, height = 600, 400
-
 def randomCoordinates():
     return (random.randint(width,height), random.randint(width, height))
-
-# defining starting positions
-x,y = 200 , 348 
-
-# used to increment x and y
-xspeed = 2
-yspeed = 2 
-
-# size of bouncing box
-boxwidth = 60 
-boxheight = 40
 
 # keeps track of times that box has collided with both edges simultaneously
 cornerHits = 0

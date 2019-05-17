@@ -1,0 +1,12 @@
+# window size
+width: 600
+height: 400
+# box dimensions
+boxwidth: 60
+boxheight: 40
+# starting position of box
+x: 200
+y: 348
+# movement speed of box
+xspeed: 2
+yspeed: 2
