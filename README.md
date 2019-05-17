@@ -2,6 +2,8 @@
 
 This program simulates the bouncing dvd logo and counts corner collisions.
 
+To use the program, simply set your values in config.yml, verify that they work with verify.py, and run dvd.py.
+
 There is an equation to verify that a certain set of values will guarantee a collision:
 
 - x = starting x
