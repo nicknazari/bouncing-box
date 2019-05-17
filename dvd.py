@@ -7,11 +7,17 @@ import cv2
 import numpy as np
 import random
 
-def randomColor(bright=False):
+def randomColor(noblack=False):
     # returns a random color
     # bright guarantees that color is never black
-    if bright:
-        return (random.randint(100,255), random.randint(100,255), random.randint(100,255))
+    if noblack:
+        chooser = random.randint(-1,1)
+        if chooser == -1:
+            return (255,0,0)
+        elif chooser == 1:
+            return (0,255,0)
+        else:
+            return (0,0,255)
 
     return (random.randint(0,255), random.randint(0,255), random.randint(0,255))
 
@@ -21,17 +27,11 @@ width, height = 600, 400
 def randomCoordinates():
     return (random.randint(width,height), random.randint(width, height))
 
-# some common values
-# hits corner every other bounce
-# x,y = 537,358
-# xspeed = 3
-# yspeed = 2
-
 # defining starting positions
-x,y = 537,358
+x,y = 200 , 348 
 
 # used to increment x and y
-xspeed = 3
+xspeed = 2
 yspeed = 2 
 
 # size of bouncing box
@@ -59,14 +59,13 @@ for i in range(100000):
     cv2.rectangle(img, (x, y), (x+boxwidth,y+boxheight), rectangleColor, -1)
 
     # drawing circle to trace path
-    
     circlePositions.append((x,y))
     for pos in circlePositions:
         cv2.circle(img, pos, 2, (0,0,255))
 
     # displaying corner hits value
     cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_PLAIN, 1, counterColor)
-    
+
     # displaying rectangle
     cv2.imshow("img", img)
     cv2.waitKey(20)
