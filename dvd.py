@@ -80,7 +80,7 @@ for i in range(100000):
     cv2.waitKey(20)
     
     # checking if box is colliding with both edges (for corner hits)
-    if (x >= width and y >= height) or (x <= 0 and y <= 0) or (x >= width and y <= 0) or (x <= 0 and y >= height):
+    if (x + boxwidth >= width and y + boxheight >= height) or (x <= 0 and y <= 0) or (x + boxwidth >= width and y <= 0) or (x <= 0 and y + boxheight >= height):
         cornerHits += 1
         rectangleColor = randomColor(True) 
         print("Corner hit count increased to %i" % cornerHits)
