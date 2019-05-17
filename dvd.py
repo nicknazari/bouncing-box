@@ -10,7 +10,7 @@ import yaml
 
 # debug traces a line on the top left corner of the bouncing box
 # good for tracking path of a box and seeing how it performs
-debug = True 
+debug = False
 
 # loading config values
 with open('config.yml', 'r') as cfgfile:
@@ -80,7 +80,7 @@ for i in range(100000):
     cv2.waitKey(20)
     
     # checking if box is colliding with both edges (for corner hits)
-    if (x >= width and y >= height) or (x <= 0 and y <= 0):
+    if (x >= width and y >= height) or (x <= 0 and y <= 0) or (x >= width and y <= 0) or (x <= 0 and y >= height):
         cornerHits += 1
         rectangleColor = randomColor(True) 
         print("Corner hit count increased to &i" % cornerHits)
