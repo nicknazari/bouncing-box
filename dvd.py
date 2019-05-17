@@ -73,7 +73,7 @@ for i in range(100000):
             cv2.circle(img, pos, 2, (0,0,255))
 
     # displaying corner hits value
-    cv2.putText(img, ('corner hits: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_PLAIN, 1, counterColor)
+    cv2.putText(img, ('CORNER HITS: %i' % cornerHits), (150, 250), cv2.FONT_HERSHEY_PLAIN, 1, counterColor)
 
     # displaying rectangle
     cv2.imshow("img", img)
@@ -81,10 +81,9 @@ for i in range(100000):
     
     # checking if box is colliding with both edges (for corner hits)
     if (x >= width and y >= height) or (x <= 0 and y <= 0):
-        cornerHits +=1
+        cornerHits += 1
         rectangleColor = randomColor(True) 
-        print("corner hit count increased")
-        print("new count: %i" % cornerHits)
+        print("Corner hit count increased to &i" % cornerHits)
 
     # checking if box is colliding with edge
     if x >= width - boxwidth or x <= 0:

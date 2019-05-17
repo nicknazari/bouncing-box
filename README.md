@@ -18,11 +18,6 @@ There is an equation to verify that a certain set of values will guarantee a col
 
 If this condition is not met, the logo will never hit a corner
 
-### Interesting configurations
+##### Interesting blog post about bouncing dvd logo
+http://prgreen.github.io/blog/2013/09/30/the-bouncing-dvd-logo-explained/
 
-##### Bounces from corner to corner
-- default values
-- x = 537
-- y = 358
-- xspeed = 3
-- yspeed = 2

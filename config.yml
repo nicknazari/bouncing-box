@@ -3,7 +3,7 @@ width: 600
 height: 400
 # box dimensions
 boxwidth: 80
-boxheight: 50 
+boxheight: 40 
 # starting position of box
 x: 2 
 y: 2 
