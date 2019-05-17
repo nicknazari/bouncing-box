@@ -83,7 +83,7 @@ for i in range(100000):
     if (x >= width and y >= height) or (x <= 0 and y <= 0) or (x >= width and y <= 0) or (x <= 0 and y >= height):
         cornerHits += 1
         rectangleColor = randomColor(True) 
-        print("Corner hit count increased to &i" % cornerHits)
+        print("Corner hit count increased to %i" % cornerHits)
 
     # checking if box is colliding with edge
     if x >= width - boxwidth or x <= 0:
