@@ -1,6 +1,6 @@
 # window size
-width: 600
-height: 400
+width: 800 
+height: 600
 # box dimensions
 boxwidth: 80
 boxheight: 40 
@@ -8,5 +8,5 @@ boxheight: 40
 x: 2 
 y: 2 
 # movement speed of box
-xspeed: 2
-yspeed: 2
+xspeed: 8
+yspeed: 8
